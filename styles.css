@@ -19,11 +19,12 @@ body {
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 20px solid red; /* Changed to border-top */
+    border-top: 20px solid red;
     position: absolute;
-    bottom: -20px; /* Changed to bottom positioning */
     left: 50%;
     transform: translateX(-50%);
+    /* The following adjustments are crucial: */
+    bottom: calc(50% + 10px); /* Position the arrow's top edge at the vertical center + half the arrow height */
 }
 
 #winner {
