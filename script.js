@@ -51,7 +51,7 @@ function spinWheel() {
     if (names.length === 0 || spinning) return;
 
     spinning = true;
-    let spinDuration = 3000;
+    let spinDuration = 3000; // 3 seconds
     let targetSpin = Math.floor(Math.random() * 3600) + 720;
 
     let startTime = null;
@@ -60,7 +60,10 @@ function spinWheel() {
         if (!startTime) startTime = currentTime;
         let progress = Math.min((currentTime - startTime) / spinDuration, 1);
 
-        currentAngle = targetSpin * progress;
+        // Apply easing function for acceleration and deceleration
+        let easedProgress = easeOutCubic(progress); // Use a cubic easing function
+
+        currentAngle = targetSpin * easedProgress;
         drawWheel();
 
         if (progress < 1) {
@@ -73,6 +76,13 @@ function spinWheel() {
 
     requestAnimationFrame(animate);
 }
+
+
+// Cubic easing out function (you can add this to your script.js)
+function easeOutCubic(t) {
+    return (--t) * t * t * 1 + 1;
+}
+
 
 function determineWinner() {
     let totalNames = names.length;
