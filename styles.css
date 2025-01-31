@@ -24,16 +24,6 @@ body {
     overflow: hidden; /* Hide any content that overflows the arrow's boundaries */
 }
 
-#arrow::before {
-    content: "";
-    position: absolute;
-    top: 50%; /* Vertically center the rotated rectangle */
-    left: 50%; /* Horizontally center the rotated rectangle */
-    transform: translate(-50%, -50%) rotate(-45deg); /* Rotate -45 degrees */
-    width: 14.14px; /* Width of the rotated rectangle (20px * cos(45deg)) */
-    height: 14.14px; /* Height of the rotated rectangle (20px * sin(45deg)) */
-    background-color: red; /* The arrow color */
-}
 
 
 #winner {
