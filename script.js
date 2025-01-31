@@ -108,8 +108,6 @@ function determineWinner() {
     let winner = names[winningIndex];
     document.getElementById('winner').textContent = "The winner is: " + winner;
 
-    let arrow = document.getElementById('arrow');
-    arrow.style.transform = `translateX(-50%) rotate(${(360 - (currentAngle % 360)) + (angle/2)}deg)`;
 
     // Update spin history
     spinCount++;
