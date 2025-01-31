@@ -15,15 +15,24 @@ body {
 }
 
 #arrow {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 20px solid red; /* Keep the red color */
     position: absolute;
     top: -30px; /* Adjust vertical position as needed */
     left: 50%;
-    transform: translateX(-50%) rotate(180deg); /* Keep the rotation for correct alignment */
+    transform: translateX(-50%); /* Keep the horizontal centering */
+    width: 20px; /* Width of the arrow */
+    height: 20px; /* Height of the arrow (adjust as needed) */
+    overflow: hidden; /* Hide any content that overflows the arrow's boundaries */
+}
+
+#arrow::before {
+    content: "";
+    position: absolute;
+    top: 50%; /* Vertically center the rotated rectangle */
+    left: 50%; /* Horizontally center the rotated rectangle */
+    transform: translate(-50%, -50%) rotate(-45deg); /* Rotate -45 degrees */
+    width: 14.14px; /* Width of the rotated rectangle (20px * cos(45deg)) */
+    height: 14.14px; /* Height of the rotated rectangle (20px * sin(45deg)) */
+    background-color: red; /* The arrow color */
 }
 
 
