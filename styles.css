@@ -14,15 +14,18 @@ body {
     margin-top: 50px; /* Added margin to move the whole container down */
 }
 
-#arrow {
-    position: absolute;
-    top: -30px; /* Adjust vertical position as needed */
-    left: 50%;
-    transform: translateX(-50%) rotate(180deg); /* Keep the horizontal centering and rotate 180 degrees */
-    width: 20px; /* Width of the arrow */
-    height: 20px; /* Height of the arrow (adjust as needed) */
-    overflow: hidden; /* Hide any content that overflows the arrow's boundaries */
-}
+ #arrow {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0;
+      height: 0;
+      border-left: 15px solid transparent;
+      border-right: 15px solid transparent;
+      border-top: 30px solid red;
+      z-index: 2;
+    }
 
 
 #winner {
