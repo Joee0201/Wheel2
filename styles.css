@@ -15,15 +15,15 @@ body {
 }
 
 #arrow {
-    width: 0;
-    height: 0;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
-    border-top: 20px solid red; /* Keep the red color */
     position: absolute;
     top: -30px; /* Adjust vertical position as needed */
     left: 50%;
     transform: translateX(-50%); /* Keep the rotation for correct alignment */
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 30px solid red; /* Keep the red color */
     z-index: 2;
 }
 
