@@ -3,7 +3,7 @@ let colors = [];
 let canvas = document.getElementById('wheel');
 let ctx = canvas.getContext('2d');
 let currentAngle = 0;
-let spinning = false; // Keep track of spinning state
+let spinning = false;
 
 function addName() {
     let name = document.getElementById('nameInput').value;
@@ -44,41 +44,46 @@ function drawWheel() {
 }
 
 function spinWheel() {
-  if (names.length === 0 || spinning) return; // Don't spin if no names or already spinning
+    if (names.length === 0 || spinning) return;
 
-  spinning = true;
-  let spinDuration = 3000; // 3 seconds spin duration
-  let targetSpin = Math.floor(Math.random() * 3600) + 720; // Random rotations + a few extra
+    spinning = true;
+    let spinDuration = 3000;
+    let targetSpin = Math.floor(Math.random() * 3600) + 720;
 
-  let startTime = null;
+    let startTime = null;
 
-  function animate(currentTime) {
-    if (!startTime) startTime = currentTime;
-    let progress = Math.min((currentTime - startTime) / spinDuration, 1);
+    function animate(currentTime) {
+        if (!startTime) startTime = currentTime;
+        let progress = Math.min((currentTime - startTime) / spinDuration, 1);
 
-    currentAngle = targetSpin * progress;
-    drawWheel();
+        currentAngle = targetSpin * progress;
+        drawWheel();
 
-    if (progress < 1) {
-      requestAnimationFrame(animate);
-    } else {
-      spinning = false;
-      determineWinner();
+        if (progress < 1) {
+            requestAnimationFrame(animate);
+        } else {
+            spinning = false;
+            determineWinner();
+        }
     }
-  }
 
-  requestAnimationFrame(animate);
+    requestAnimationFrame(animate);
 }
-
 
 function determineWinner() {
     let totalNames = names.length;
     let angle = 360 / totalNames;
-    let winningIndex = Math.floor((360 - (currentAngle % 360)) / angle); // Calculate winning index
-  
+    let winningIndex = Math.floor((360 - (currentAngle % 360)) / angle);
+
     if (winningIndex < 0) {
-      winningIndex = totalNames -1;
+        winningIndex = totalNames - 1;
     }
     let winner = names[winningIndex];
     document.getElementById('winner').textContent = "The winner is: " + winner;
+}
+
+function handleKeyPress(event) {
+    if (event.key === "Enter") {
+        addName();
+    }
 }
