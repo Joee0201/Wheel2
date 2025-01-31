@@ -2,10 +2,11 @@
 <html>
 <head>
     <title>Name Wheel</title>
-    <link rel="stylesheet" href="styles.css"> </head>
+    <link rel="stylesheet" href="styles.css">
+</head>
 <body>
     <h1>Name Wheel</h1>
-    <input type="text" id="nameInput" placeholder="Enter a name">
+    <input type="text" id="nameInput" placeholder="Enter a name" onkeydown="handleKeyPress(event)">
     <button onclick="addName()">Add Name</button>
     <div id="nameList"></div>
     <canvas id="wheel" width="300" height="300"></canvas><br>
