@@ -23,7 +23,8 @@ body {
     position: absolute;
     top: -30px; /* Adjust vertical position as needed */
     left: 50%;
-    transform: translateX(-50%) rotate(180deg); /* Keep the rotation for correct alignment */
+    transform: translateX(-50%); /* Keep the rotation for correct alignment */
+    z-index: 2;
 }
 
 #winner {
