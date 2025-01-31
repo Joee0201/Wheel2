@@ -21,7 +21,7 @@ body {
     border-right: 10px solid transparent;
     border-bottom: 20px solid red; /* Or any color you prefer */
     position: absolute;
-    top: -30px; /* Adjust as needed to position above the wheel */
+    top: -50px; /* Adjust as needed to position above the wheel */
     left: 50%;
     transform: translateX(-50%); /* Center the arrow */
 }
