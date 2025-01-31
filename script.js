@@ -7,20 +7,33 @@ let spinning = false;
 
 function addName() {
     let name = document.getElementById('nameInput').value;
-    if (name.trim() !== "") {
+    if (name.trim()!== "") {
         names.push(name);
         document.getElementById('nameList').innerHTML = names.join("<br>");
         document.getElementById('nameInput').value = "";
 
         let randomColor;
         do {
-            randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
-        } while (randomColor === "#000000"); // Exclude black
+            randomColor = generateBrightColor(); // Use the new function
+        } while (colors.includes(randomColor)); // Ensure unique colors
 
         colors.push(randomColor);
         drawWheel();
     }
 }
+
+
+function generateBrightColor() {
+    let r, g, b;
+    do {
+        r = Math.floor(Math.random() * 256);
+        g = Math.floor(Math.random() * 256);
+        b = Math.floor(Math.random() * 256);
+    } while (r < 100 && g < 100 && b < 100); // Ensure brightness
+
+    return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
+}
+
 
 function drawWheel() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
