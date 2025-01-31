@@ -19,10 +19,11 @@ body {
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-top: 20px solid red;
+    border-bottom: 20px solid red; /* Or any color you prefer */
     position: absolute;
+    top: -20px; /* Adjust as needed to position above the wheel */
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%); /* Center the arrow */
 }
 
 #winner {
