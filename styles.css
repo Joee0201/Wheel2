@@ -5,25 +5,25 @@ body {
 
 #wheel {
     border: 1px solid black;
-    position: relative; /* Needed for absolute positioning of the arrow */
+    position: relative;
 }
 
 .wheel-container {
-    position: relative; /* Needed for absolute positioning of the arrow */
-    display: inline-block; /* Needed for absolute positioning of the arrow */
+    position: relative;
+    display: inline-block;
+    margin-top: 50px; /* Added margin to move the whole container down */
 }
-
 
 #arrow {
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
     border-right: 10px solid transparent;
-    border-bottom: 20px solid red; /* Or any color you prefer */
+    border-top: 20px solid red; /* Changed to border-top */
     position: absolute;
-    top: -20px; /* Adjust as needed to position above the wheel */
+    bottom: -20px; /* Changed to bottom positioning */
     left: 50%;
-    transform: translateX(-50%); /* Center the arrow */
+    transform: translateX(-50%);
 }
 
 #winner {
