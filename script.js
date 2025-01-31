@@ -1,9 +1,10 @@
-let names = [];
-let colors = [];
+let names =;
+let colors =;
 let canvas = document.getElementById('wheel');
 let ctx = canvas.getContext('2d');
 let currentAngle = 0;
 let spinning = false;
+let spinCount = 0; // Counter for spin history
 
 function addName() {
     let name = document.getElementById('nameInput').value;
@@ -107,6 +108,15 @@ function determineWinner() {
     let winner = names[winningIndex];
     document.getElementById('winner').textContent = "The winner is: " + winner;
 
+    let arrow = document.getElementById('arrow');
+    arrow.style.transform = `translateX(-50%) rotate(${(360 - (currentAngle % 360)) + (angle/2)}deg)`;
+
+    // Update spin history
+    spinCount++;
+    let historyList = document.getElementById('historyList');
+    let newEntry = document.createElement('li');
+    newEntry.textContent = `${spinCount}. ${winner}`;
+    historyList.appendChild(newEntry);
 }
 
 function handleKeyPress(event) {
