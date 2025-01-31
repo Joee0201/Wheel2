@@ -29,11 +29,10 @@ function generateBrightColor() {
         r = Math.floor(Math.random() * 256);
         g = Math.floor(Math.random() * 256);
         b = Math.floor(Math.random() * 256);
-    } while (r < 100 && g < 100 && b < 100); // Ensure brightness
+    } while (r < 150 && g < 150 && b < 150); // Increased minimum to 150
 
     return "#" + ((1 << 24) + (r << 16) + (g << 8) + b).toString(16).slice(1);
 }
-
 
 function drawWheel() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
