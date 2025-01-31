@@ -12,7 +12,11 @@ function addName() {
         document.getElementById('nameList').innerHTML = names.join("<br>");
         document.getElementById('nameInput').value = "";
 
-        let randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        let randomColor;
+        do {
+            randomColor = "#" + Math.floor(Math.random() * 16777215).toString(16);
+        } while (randomColor === "#000000"); // Exclude black
+
         colors.push(randomColor);
         drawWheel();
     }
@@ -34,7 +38,7 @@ function drawWheel() {
         ctx.lineTo(canvas.width / 2, canvas.height / 2);
         ctx.fill();
 
-        ctx.fillStyle = 'black';
+        ctx.fillStyle = 'black'; // Keep text color black
         ctx.font = '12px Arial';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
