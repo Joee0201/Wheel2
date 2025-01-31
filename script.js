@@ -1,5 +1,5 @@
-let names =;
-let colors =;
+let names =[];
+let colors =[];
 let canvas = document.getElementById('wheel');
 let ctx = canvas.getContext('2d');
 let currentAngle = 0;
